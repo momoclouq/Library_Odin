@@ -1,42 +1,37 @@
-function addBookForm(){
-    let form = document.createElement("div");
+let form = document.querySelector("#addBookForm");
+let showFormButton = document.querySelector("#submitBtn");
+let submitBookBtn = document.querySelector("#submitBookBtn");
 
-    let formTitle = document.createElement("h1");
-    formTitle.textContent = "Add a new book";
-     
-    let inputFieldTitle = createInputField("bookTitle", "Title: ");
-    let inputFieldAuthor =  createInputField("bookAuthor", "Author: ");
-    let inputFieldPages = createInputField("bookPages", "Pages: ");
-    let inputFieldRead = createInputField("bookRead", "Read: ");
+//show the form when the button pressed
+showFormButton.addEventListener("click", () => {
+    form.classList.toggle("isVisible");
+});
 
-    let submitBtn = document.createElement("button");
-    submitBtn.textContent = "submit";
+//get the data from the form and create a book
+submitBookBtn.addEventListener('click', function(){
+    let titleField = document.querySelector("#bTitle");
+    let title = titleField.value;
 
-    form.appendChild(formTitle);
-    form.appendChild(inputFieldTitle);
-    form.appendChild(inputFieldAuthor);
-    form.appendChild(inputFieldPages);
-    form.appendChild(inputFieldRead);
-    form.appendChild(submitBtn);
+    let authorField = document.querySelector("#bAuthor");
+    let author = authorField.value;
 
-    form.classList.add("submit_form");
+    let pagesField = document.querySelector("#bPages");
+    let pages = pagesField.value;
 
-    return form;
-}
+    let readField = document.getElementsByName("readValue");
+    let read = true;
+    for (let i = 0; i < readField.length; i++){
+        if (readField[i].checked){
+            read = (readField.value === 'true');
+        }
+    }
 
-function createInputField(key, value){
-    //if (typeof key != string || typeof value != string) throw "no value input";
+    let book = new Book(title, author, pages, read);
+    myLibrary.push(book);
+    let card = book.createCard(myLibrary.length-1);
+    container.appendChild(card);
+    console.log(myLibrary);
+})
 
-    let label = document.createElement("label");
-    label.setAttribute("for", key);
-    label.textContent = value;
 
-    let textInputField = document.createElement("input");
-    textInputField.setAttribute("type" ,"text");
-    textInputField.setAttribute("id", key);
-    textInputField.setAttribute("name", key);
-    
-    return label, textInputField;
-}
 
-export {addBookForm};

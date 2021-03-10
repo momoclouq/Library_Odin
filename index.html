@@ -8,19 +8,25 @@
     <body>
         <div id="container">
             <div id="addBookForm" class="submit_form">
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname" value="John"><br>
-                <label for="lname">Last name:</label>
-                <input type="text" id="lname" name="lname" value="Doe"><br><br>
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname" value="John"><br>
-
-                
+                <div>Enter information of the new book</div>
+                <label for="bTitke">Title:</label>
+                <input type="text" id="bTitle" name="bTitle" placeholder="Ex: Eragon"><br>
+                <label for="bAuthor">Author:</label>
+                <input type="text" id="bAuthor" name="bAuthor" placeholder="Ex: Christopher Paolin"><br>
+                <label for="bPages">Pages:</label>
+                <input type="text" id="bPages" name="bPages" placeholder="9999"><br>
+                <label for="bRead">Read: </label><br>
+                <input type="radio" id="yes" name="readValue" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="readValue" value="no">
+                <label for="no">No</label>
+                <br>
+                <button id="submitBookBtn">Submit</button>
             </div>
-            <button id="submitBtn">show</button>
+            <button id="submitBtn">Add a new book</button>
         </div>
-        <script src="test.js"></script>
-        <!--<script type="module" src="script.js"></script>
-        <script type="module" src="form.js"></script>-->
+        <!--<script src="test.js"></script>-->
+        <script src="script.js"></script>
+        <script src="form.js"></script>
     </body>
 </html>
