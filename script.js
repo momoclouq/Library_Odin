@@ -1,4 +1,4 @@
-let myLibrary = [];
+let myLibrary = addBookFromStorage(localStorage.getItem('library') ? JSON.parse(localStorage.getItem('library')) : []);
 
 //DOM elements
 let container = document.querySelector("#container");
@@ -74,6 +74,17 @@ function addBookToLibrary(book){
     myLibrary.push(book);
 }
 
+function addBookFromStorage(importedLibrary){
+    if (importedLibrary.length == 0) return [];
+    else {
+        let library = [];
+        for (let i = 0; i < importedLibrary.length; i++){;
+            library.push(new Book(importedLibrary[i].title, importedLibrary[i].author, importedLibrary[i].pages, importedLibrary[i].read));
+        }
+        return library;
+    }
+}
+
 //display all books in the library
 function showAllBooks(){
     for (let i = 0; i < myLibrary.length; i++){
@@ -81,17 +92,7 @@ function showAllBooks(){
         container.appendChild(card);
     }
 }
-
 //testing with data
-let book1 = new Book("Harry potter", "the witches", 1234, false);
-let book2 = new Book("Dance with the angel", "James Bond", 666, false);
-let book3 = new Book("Fly me to the moon", "Frank sinatra", 555, true);
-let book4 = new Book("Tame the lioness", "James Conners", 244, true);
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
-addBookToLibrary(book4);
-
 showAllBooks();
 
 
