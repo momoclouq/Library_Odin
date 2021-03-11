@@ -7,7 +7,9 @@
 
     <body>
         <div id="container">
+            <h1>My library</h1>
             <div id="addBookForm" class="submit_form">
+                <button id="closeFormBtn"><i class="fas fa-window-close" style="transform: scale(2);"></i></button>
                 <div>Enter information of the new book</div>
                 <label for="bTitke">Title:</label>
                 <input type="text" id="bTitle" name="bTitle" placeholder="Ex: Eragon"><br>
@@ -15,18 +17,19 @@
                 <input type="text" id="bAuthor" name="bAuthor" placeholder="Ex: Christopher Paolin"><br>
                 <label for="bPages">Pages:</label>
                 <input type="text" id="bPages" name="bPages" placeholder="9999"><br>
-                <label for="bRead">Read: </label><br>
+                <label for="bRead">Read: </label>
                 <input type="radio" id="yes" name="readValue" value="yes">
                 <label for="yes">Yes</label>
                 <input type="radio" id="no" name="readValue" value="no">
                 <label for="no">No</label>
                 <br>
-                <button id="submitBookBtn">Submit</button>
+                <button id="submitBookBtn">Add</button>
             </div>
             <button id="submitBtn">Add a new book</button>
         </div>
         <!--<script src="test.js"></script>-->
         <script src="script.js"></script>
         <script src="form.js"></script>
+        <script src="https://kit.fontawesome.com/6af8588f7a.js" crossorigin="anonymous"></script>
     </body>
 </html>

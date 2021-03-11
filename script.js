@@ -31,6 +31,7 @@ Book.prototype.createCard = function(index){
     cRead.textContent = "Read: " + this.read;
 
     let removeBtn = document.createElement('button');
+    removeBtn.classList.add("cardButton");
     removeBtn.id = "removeBtn" + index;
     removeBtn.textContent = "Remove";
     removeBtn.addEventListener('click', () => {
@@ -41,6 +42,7 @@ Book.prototype.createCard = function(index){
     });
 
     let changeReadBtn = document.createElement('button');
+    changeReadBtn.classList.add("cardButton");
     changeReadBtn.id = "changeBtn" + index;
     changeReadBtn.textContent = "Change read status";
     changeReadBtn.addEventListener('click', function(){
@@ -51,12 +53,19 @@ Book.prototype.createCard = function(index){
         cRead.textContent = "Read: " + this.read;
     });
 
-    card.appendChild(cTitle);
-    card.appendChild(cAuthor);
-    card.appendChild(cPages);
-    card.appendChild(cRead);
-    card.appendChild(removeBtn);
-    card.appendChild(changeReadBtn);
+    //create the container
+    let infoSection = document.createElement("div");
+    let buttonSection = document.createElement("div");
+    buttonSection.classList.add("buttonSection");
+
+    infoSection.appendChild(cTitle);
+    infoSection.appendChild(cAuthor);
+    infoSection.appendChild(cPages);
+    infoSection.appendChild(cRead);
+    buttonSection.appendChild(removeBtn);
+    buttonSection.appendChild(changeReadBtn);
+    card.appendChild(infoSection);
+    card.appendChild(buttonSection);
     card.classList.add("card");
     return card;
 }

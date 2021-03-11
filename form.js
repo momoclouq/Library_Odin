@@ -1,10 +1,15 @@
 let form = document.querySelector("#addBookForm");
 let showFormButton = document.querySelector("#submitBtn");
+let closeFormButton = document.querySelector("#closeFormBtn");
 let submitBookBtn = document.querySelector("#submitBookBtn");
 
 //show the form when the button pressed
 showFormButton.addEventListener("click", () => {
     form.classList.toggle("isVisible");
+});
+
+closeFormButton.addEventListener("click", () => {
+    form.classList.remove("isVisible");
 });
 
 //get the data from the form and create a book
@@ -19,10 +24,13 @@ submitBookBtn.addEventListener('click', function(){
     let pages = pagesField.value;
 
     let readField = document.getElementsByName("readValue");
+    console.log(readField);
     let read = true;
+
     for (let i = 0; i < readField.length; i++){
         if (readField[i].checked){
-            read = (readField.value === 'true');
+            read = (readField[i].value === "yes");
+            break;
         }
     }
 
@@ -30,8 +38,10 @@ submitBookBtn.addEventListener('click', function(){
     myLibrary.push(book);
     let card = book.createCard(myLibrary.length-1);
     container.appendChild(card);
-    console.log(myLibrary);
-})
+    authorField.value = "";
+    pagesField.value = "";
+    titleField.value = ""; 
+});
 
 
 
