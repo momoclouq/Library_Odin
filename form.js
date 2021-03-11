@@ -3,12 +3,12 @@ let showFormButton = document.querySelector("#submitBtn");
 let closeFormButton = document.querySelector("#closeFormBtn");
 let submitBookBtn = document.querySelector("#submitBookBtn");
 
-//show the form when the button pressed
+//show the form when the button pressed, also reset the form
 showFormButton.addEventListener("click", () => {
     form.classList.toggle("isVisible");
     resetForm();
 });
-
+//hide and reset the form if close button is clicked
 closeFormButton.addEventListener("click", () => {
     form.classList.remove("isVisible");
     resetForm();
